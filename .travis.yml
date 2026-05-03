@@ -1,24 +1,14 @@
 language: python
-python:
-  - "3.9"
-
-branches:
-  only:
-    - main
-
-install:
-  - pip install -r requirements.txt
-
+python: "3.9"
+install: pip install flask
+before_script:
+  - gcc -O3 -pthread -o bgmi bgmi.c
+  - chmod +x bgmi
 script:
+  - ./bgmi status
   - python -m py_compile app.py
-  - echo "✅ Syntax OK"
-
 deploy:
   provider: script
   script: bash deploy.sh
   on:
     branch: main
-
-env:
-  global:
-    - PORT=5000
