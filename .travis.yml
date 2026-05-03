@@ -1,0 +1,24 @@
+language: python
+python:
+  - "3.9"
+
+branches:
+  only:
+    - main
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - python -m py_compile app.py
+  - echo "✅ Syntax OK"
+
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: main
+
+env:
+  global:
+    - PORT=5000
