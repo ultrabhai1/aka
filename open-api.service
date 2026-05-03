@@ -1,0 +1,14 @@
+[Unit]
+Description=Open Attack API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/open-api
+ExecStart=/usr/bin/python3 /opt/open-api/app.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
