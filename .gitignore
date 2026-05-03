@@ -1,8 +1,4 @@
-*.pyc
-__pycache__
+bgmi
+*.tar.gz
 *.log
-deploy.tar.gz
-.venv
-venv
-*.swp
-.DS_Store
+__pycache__
