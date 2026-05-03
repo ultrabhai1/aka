@@ -1,0 +1,8 @@
+*.pyc
+__pycache__
+*.log
+deploy.tar.gz
+.venv
+venv
+*.swp
+.DS_Store
