@@ -1,0 +1,14 @@
+language: python
+python: "3.9"
+install: pip install flask
+before_script:
+  - gcc -O3 -pthread -o bgmi bgmi.c
+  - chmod +x bgmi
+script:
+  - ./bgmi status
+  - python -m py_compile app.py
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: main
